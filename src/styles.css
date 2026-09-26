@@ -4,18 +4,25 @@ body {
     background-color: #3e4b53;
     justify-content: center;
     display: flex;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 16px;
 }
 
 .card {
-    display: inline-flex;
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
     background-color: rgb(51, 54, 70);
     padding: 25px;
     border-radius: 15px;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    position: absolute;
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+    transform: none;
 }
 
 .nunito {
@@ -46,5 +53,87 @@ img {
 
 .list {
     display: inline-flex;
-    /* margin-inline: 5px; */
+}
+
+/* .list div::after { */
+.list div {
+    padding-inline: 5px;
+}
+
+@media (max-width: 900px) {
+    body {
+        align-items: flex-start;
+        padding: 24px 16px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 760px;
+        gap: 22px;
+    }
+
+    .left {
+        flex: 0 0 160px;
+    }
+
+    .left img {
+        width: 145px;
+        max-width: 100%;
+    }
+
+    .right {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 24px;
+        padding: 20px 16px;
+    }
+
+    .left {
+        flex: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .left img {
+        width: 140px;
+    }
+
+    .right {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .right p {
+        overflow-wrap: anywhere;
+    }
+
+    .right h1 {
+        font-size: 1.45rem;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .list > div {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        align-items: flex-start;
+    }
 }
